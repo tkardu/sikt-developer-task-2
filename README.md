@@ -66,11 +66,11 @@
 
 If you don't write Java, there is no reason not to attempt this task; a lot of the software we use/create at Sikt uses Java or the JVM, and becoming familiar with it is a necessary part of our work. 
 
-This task uses minimal features of the Java language and the concepts should be familiar to anyone. The initial test and code are set up for you.
+This task uses minimal features of the Java language, and the concepts should be familiar to anyone. The initial test and code are set up for you.
 
 ### Gradle
 
-If you use an IDE, it likely supports Gradle out-of-the-box, but may require a plugin. IntelliJ IDE (community or paid edition are good choice), if you don't have a Java IDE.
+If you use an IDE, it likely supports Gradle out-of-the-box, but may require a plugin. IntelliJ IDE (community or paid edition) is good choice, if you don't have a Java IDE.
 
 To build the project on the commandline, use:
 
