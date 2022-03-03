@@ -74,6 +74,8 @@ Build on the example code, following its lead.
 
 We are interested in your code ideas and how you structure your code. We are also interested in whether you understand what our intention is with the requirements and code we have provided.
 
+We have an in-house style which is enforced by PMD; for those unfamiliar with this, it can seem arbitrary, but it picks up several common mistakes we prefer not to have to pick up on in QA.
+
 We deploy continuously, so it's important to ensure that every commit builds, which entails that you commit a test with its corresponding code changes. If you follow a test-first approach, you won't have a problem, if you don't your code will not build due to the configuration test coverage restrictions (100% is a stiff requirement…but we still have it!)
 
 If you get to a point where the task becomes too difficult, just submit your building code — don't feel bad, the task isn't necessarily simple.
