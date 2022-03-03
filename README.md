@@ -1,11 +1,19 @@
 # Calculator
 
    * Take a moment to familiarize yourself with the (non-)functional requirements below
-   * The test cases are in [examples.tsv](src/test/resources/examples.tsv)
+   * The test cases are in [examples.tsv](src/test/resources/examples.tsv), see the note below
    * Fork the repo
    * Push your changes to the new repo (you may keep this private)
    * Send us the repo address, granting access when requested if you made it private
    * If you don't generally use Java or Gradle, take a look at the Development section
+
+## Note on the expressions
+
+The calculator accepts expressions of type `1 1 +`, for which the answer is `2`. Similarly `2 2 1 + *` equals `6`.
+
+Firstly, all the expressions and answer values *are* correct.
+
+If you're familiar with this method of representing expressions, hooray! If not, note that the sequence in which numbers and operators occur defines to what and when operators apply. If you start with the simplest examples first and follow a test-driven approach — as instructed in the non-functional requirements — the structure of the sequence should become apparent.
 
 ## Requirements
 
@@ -59,6 +67,18 @@
 - Write the code as a simple module that may be imported used by other software
 - Ensure that the configured test and codestyle verification pass for every commit
 - The JUnit 5 API (and extensions) must be used
+
+### Code practices
+
+Build on the example code, following its lead. 
+
+We are interested in your code ideas and how you structure your code. We are also interested in whether you understand what our intention is with the requirements and code we have provided.
+
+We deploy continuously, so it's important to ensure that every commit builds, which entails that you commit a test with its corresponding code changes. If you follow a test-first approach, you won't have a problem, if you don't your code will not build due to the configuration test coverage restrictions (100% is a stiff requirement…but we still have it!)
+
+We will spend time providing detailed feedback on your code.
+
+Finally, to ensure that the task is simple, we have ensured that every expression results in an integer, so it is not necessary to handle formatting of fractional parts of numbers. If your code supports any input/output number, this is additional credit, but not necessary.
 
 ## Development
 
