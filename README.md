@@ -76,9 +76,11 @@ We are interested in your code ideas and how you structure your code. We are als
 
 We deploy continuously, so it's important to ensure that every commit builds, which entails that you commit a test with its corresponding code changes. If you follow a test-first approach, you won't have a problem, if you don't your code will not build due to the configuration test coverage restrictions (100% is a stiff requirement…but we still have it!)
 
+If you get to a point where the task becomes too difficult, just submit your building code — don't feel bad, the task isn't necessarily simple.
+
 We will spend time providing detailed feedback on your code.
 
-Finally, to ensure that the task is simple, we have ensured that every expression results in an integer, so it is not necessary to handle formatting of fractional parts of numbers. If your code supports any input/output number, this is additional credit, but not necessary.
+Finally, to ensure that the task is as simple as possible, we have ensured that every expression results in an integer, so it is not necessary to handle formatting of fractional parts of numbers. If your code supports any input/output number, this is additional credit, but not necessary.
 
 ## Development
 
