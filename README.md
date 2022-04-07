@@ -4,7 +4,7 @@
    * The test cases are in [examples.tsv](src/test/resources/examples.tsv), see the note below
    * Fork the repo
    * Push your changes to the new repo (you may keep this private)
-   * Send us the repo address, granting access when requested if you made it private
+   * Share the repository with @brinxmat and @axthosarouris, granting access when requested if you made it private
    * If you don't generally use Java or Gradle, take a look at the Development section
 
 ## Note on the expressions
