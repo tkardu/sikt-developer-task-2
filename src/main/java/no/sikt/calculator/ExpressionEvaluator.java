@@ -1,5 +1,10 @@
 package no.sikt.calculator;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.Stack;
 import java.util.Arrays;
@@ -39,6 +44,10 @@ public class ExpressionEvaluator {
 
 
     public Stack<Integer> stackOperation(String operation, Stack<Integer> stackCalculator) {
+
+
+
+
         int value1;
         int value2;
         try {
@@ -76,5 +85,7 @@ public class ExpressionEvaluator {
         assert nonNull(this.result);
         return this.result;
     }
+
+
 }
 
