@@ -44,10 +44,6 @@ public class ExpressionEvaluator {
 
 
     public Stack<Integer> stackOperation(String operation, Stack<Integer> stackCalculator) {
-
-
-
-
         int value1;
         int value2;
         try {

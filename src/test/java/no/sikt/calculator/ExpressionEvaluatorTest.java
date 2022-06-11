@@ -4,6 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -70,6 +75,22 @@ public class ExpressionEvaluatorTest {
         Assertions.assertEquals("The number of digits provided by expression was not sufficient or the unknown symbol provided instead of number", thrown.getMessage());
     }
 
+    @Test
+    void testThroughFile() {
+        File fileWithExamples = new File("src/test/resources/examples.tsv");
+        ArrayList<String> dataTest = readFile(fileWithExamples);
+        dataTest.remove(0);
+        for (String line: dataTest)
+        {
+            String[] stringFromFile = line.split("\t");
+            String expression = stringFromFile[0];
+            Integer resultExpected = Integer.valueOf(stringFromFile[1]);
+            var actual = new ExpressionEvaluator(expression).getResult();
+            assertEquals (resultExpected, actual);
+        }
+
+    }
+
 
     /* TODO Not sure how to implement looping through examples without parameterized test, but junit dependency is not there?
 <dependency>
@@ -78,16 +99,20 @@ public class ExpressionEvaluatorTest {
     <version>5.8.1</version>
     <scope>test</scope>
 </dependency>*/
-    /*
-    public static ArrayList<String[]> readFile(File test2) throws IOException {
-        ArrayList<String[]> TestData = new ArrayList<>();
-        try (BufferedReader TSVReader = new BufferedReader(new FileReader(test2))) {
+
+    public static ArrayList<String> readFile(File fileName)  {
+        ArrayList<String> TestData = new ArrayList<String>();
+        try (BufferedReader TSVReader = new BufferedReader(new FileReader(fileName))) {
             String line = null;
             while ((line = TSVReader.readLine()) != null) {
-                String[] lineItems = line.split("\t");
-                TestData.add(lineItems);
+                TestData.add(line);
             }
-            return TestData;
         }
-    }*/
+        catch (Exception e)
+        {
+            System.out.println("Error while reading file");
+        }
+        return TestData;
+    }
 }
+
