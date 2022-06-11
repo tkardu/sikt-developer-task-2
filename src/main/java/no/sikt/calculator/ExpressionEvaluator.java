@@ -1,5 +1,6 @@
 package no.sikt.calculator;
 
+import java.util.EmptyStackException;
 import java.util.Stack;
 import java.util.Arrays;
 
@@ -9,13 +10,7 @@ public class ExpressionEvaluator {
     Integer result;
     public ExpressionEvaluator(String expression) {
         assert nonNull(expression);
-        try
-        {
             this.result = processExpression(expression);
-        }
-        catch (Exception e) {
-
-        }
     }
 
    public Integer processExpression (String expression){
@@ -23,26 +18,37 @@ public class ExpressionEvaluator {
        String[] tokenized = expression.split(" ");
        for (String element : tokenized) {
            assert nonNull(element);
-           if (element.equals("+") || element.equals("-") || element.equals("*") || element.equals("/")) {
-               stackOperation(element, stackedValues);
-
-           } else {
-                   stackedValues.push(Integer.valueOf(element));
-                   //throws an exception
+           try
+           {
+               Integer.valueOf(element);
+               stackedValues.push(Integer.valueOf(element));
            }
+           catch (NumberFormatException e)
+           {
+               stackOperation(element, stackedValues);
+           }
+
        }
        if (stackedValues.size() == 1){
            return stackedValues.peek();
        }
        else {
-           throw new IndexOutOfBoundsException("Stack size after processing is not 1");
+           throw new IllegalArgumentException("An operator is missing");
        }
    }
 
 
     public Stack<Integer> stackOperation(String operation, Stack<Integer> stackCalculator) {
-        int value2 = stackCalculator.pop();
-        int value1 = stackCalculator.pop();
+        int value1;
+        int value2;
+        try {
+            value2 = stackCalculator.pop();
+            value1 = stackCalculator.pop();
+        }
+        catch (EmptyStackException errStack){
+            throw new IllegalArgumentException("The number of digits provided by expression was not sufficient or the unknown symbol provided instead of number");
+        }
+
         int operationResult;
         if (operation.equals("+")) {
             operationResult = value1 + value2;
@@ -59,7 +65,7 @@ public class ExpressionEvaluator {
             operationResult = value1 * value2;
         }
         else {
-            throw new RuntimeException("An operation was processed wrong");
+            throw new IllegalArgumentException("An invalid input in the sequence");
         }
         //TOdo: handle wrong operator
         stackCalculator.push(operationResult);
